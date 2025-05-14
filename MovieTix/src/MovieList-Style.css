@@ -1,0 +1,125 @@
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prev-button, .next-button{
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px 60px;
+    width: 50px; /* Lebar tombol */
+    height: 50px; /* Tinggi tombol */
+    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    display: flex; /* Untuk memusatkan konten */
+    align-items: center; /* Memusatkan secara vertikal */
+    justify-content: center; /* Memusatkan secara horizontal */
+    padding: 0;
+}
+
+.carousel:hover .prev-button, .carousel:hover .next-button {
+    visibility: visible;
+    opacity: 1;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: none;
+}
+
+.carousel-item img {
+    width: 200px;
+    height: 300px;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    margin-top: 5rem;
+    margin-left: 12rem;
+}
+
+.movie-title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 520;
+    font-size: larger;
+    margin-top: 1rem;
+    margin-bottom: none;
+    text-align: center;
+}
+
+.movie-info {
+    display: flex;
+    gap: 8px;
+}
+
+.movie-info p {
+    background-color: rgb(233, 233, 233);
+    padding: 4px;
+    color: black;
+    border-radius: 5px;
+    margin-top: none;
+}
+
+.movie-button a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    align-items: justify;
+    padding: 5px;
+    border: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.movie-button {
+    gap: 1rem;
+    margin: 0;
+    display: flex;
+    height: 50px;
+}
+
+.watch-trailer-button, .book-button {
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 90px;
+    /* white-space: nowrap; */
+    text-align: center;
+    padding: 8px 12px
+}
+
+.book-button {
+    background-color: black;
+}
+
+.book-button a {
+    color: white;
+}
+
+.book-button:hover {
+    background-color: #ff9500;
+    transition: 0.175s ease;
+}
+
+.watch-trailer-button {
+    background-color: white;
+    border: 2px solid black;
+}
+
+.watch-trailer-button:hover {
+    background-color: #ff9500;
+    transition: 0.175s ease;
+    border: none /* Tambahkan jenis dan warna border */
+}   

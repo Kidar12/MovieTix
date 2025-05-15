@@ -11,7 +11,7 @@ const Navbar = () => {
                 <li><a href="/Upcoming">Upcoming</a></li>
                 <li><a href="/Cinemas">Cinemas</a></li> */}
                 <li>
-                    <form action="">
+                    <form action="">    
                         <input type="text" placeholder='🔍 Search' name="" id="" />
                     </form>
                 </li>

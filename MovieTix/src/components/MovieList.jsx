@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+// import { Link } from "react-router-dom";
 
 import img1 from "../assets/img_1.jpeg";
 import img2 from "../assets/img_2.jpeg";
@@ -26,15 +27,23 @@ const MovieList = () => {
     const visibleCount = 4
 
     const next = () => {
-        if (startIndex + visibleCount < moviesProperties.length) {
-            setStartIndex(startIndex + visibleCount);
-        }
+        setStartIndex((prev) => (prev + visibleCount) % moviesProperties.length);
     }
 
     const prev = () => {
-        if (startIndex > 0) {
-            setStartIndex(startIndex - visibleCount);
+        setStartIndex((prev) => (prev - visibleCount + moviesProperties.length) % moviesProperties.length); 
+    }
+
+    // Untuk indikator bar
+    const totalPages = Math.ceil(moviesProperties.length / visibleCount);
+    const currentPage = Math.floor(startIndex / visibleCount);
+
+    const slicingLooping = () => {
+        let result = [];
+        for (let i = 0; i < visibleCount; i++){
+            result.push(moviesProperties[(startIndex + i) % moviesProperties.length])
         }
+        return result;
     }
 
     return (
@@ -43,7 +52,7 @@ const MovieList = () => {
             <div className="carousel">
                 <button className="prev-button" onClick={prev}>{'<'}</button>
                 <div className="carousel-container">
-                    {moviesProperties.slice(startIndex, startIndex + visibleCount).map((movies, index) => (
+                    {slicingLooping().map((movies, index) => (
                     <div className="carousel-item" key={index}>
                         <img src={movies.src} alt={`Movie-${index}`} />
                         <h2 className="movie-title">{movies.title}</h2>
@@ -62,9 +71,9 @@ const MovieList = () => {
                             <button className="watch-trailer-button">
                                 <a href="#">Watch Trailer</a>
                             </button>
-
+                            
                             <button className="book-button">
-                                <a href="#">Beli Tiket</a>
+                                <Link to="/studio">Beli Tiket</Link> {/* INI MASIH SALAH */}
                             </button>
                         </div>
                     </div>
@@ -72,7 +81,14 @@ const MovieList = () => {
                 </div>
                 <button className="next-button" onClick={next}>{'>'}</button>
             </div>
-            {/* <button onClick={() => console.log("Show All Movies clicked!")}>Show All Movies</button> */}
+            <div className="indicator-carousel">
+                {Array.from({ length: totalPages}).map((_, idx) => (
+                    <span
+                        key = {idx}
+                        className={`indicator-dot${idx === currentPage ? " active" : ""}`}
+                    ></span>
+                ))}
+            </div>
         </div>
         
     )

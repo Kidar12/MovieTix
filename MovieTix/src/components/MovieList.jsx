@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import img1 from "../assets/img_1.jpeg";
 import img2 from "../assets/img_2.jpeg";
@@ -73,7 +73,7 @@ const MovieList = () => {
                             </button>
                             
                             <button className="book-button">
-                                <Link to="/studio">Beli Tiket</Link> {/* INI MASIH SALAH */}
+                                <Link to={`/book/${index}`}>Beli Tiket</Link>
                             </button>
                         </div>
                     </div>
